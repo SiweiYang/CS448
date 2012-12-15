@@ -1,0 +1,666 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Ken Salem">
+   <title>CS 448/648 (Winter 2012)</title>
+   <link rel=stylesheet type="text/css" href="http://www.cs.uwaterloo.ca/~kmsalem/main.css">
+   <STYLE type="text/css">
+<!--  -->
+</STYLE>
+</head>
+<body>
+
+<h1>CS 448/648 (Winter 2012)<br> 
+Database Systems Implementation</h1>
+
+<h2>Contents</h2>
+<table width="100%" border="2" cellpadding="2">
+<tr valign="center" align="center">
+<td><a href="#info">Course Information</a></td>
+<td><a href="#workload">Workload and Evaluation</a></td>
+<td><a href="#schedule">Schedule and Lecture Notes</a></td>
+<td><a href="#assignments">Assignments</a></td>
+<td><a href="#exams">Exams</a></td>
+<td><a href="#648info">CS648 Info</a></td>
+<td><a href="#academicintegrity">Academic Integrity</a></td>
+</tr>
+</table>
+
+<a name="info">
+<h2>Course Information</h2>
+
+<b>Note: There will be no CS448/648 lecture on Thursday Feb 16th, the
+date of the <a href="#exams">midterm exam</a>.  On that day (only), instructor
+office hours will run from 1:00-4:00 in DC 3512.</b>
+
+<table cols="2">
+
+<tr>
+<td width="20%"  align="left">Meeting Time and Place:</td>
+<td align="left">TTh 1:00-2:20 in PHY 313</td>
+</tr>
+
+<tr>
+<td width="20%"  align="left">Instructor:</td>
+<td align="left"><a target="_top"
+		    href="http://www.cs.uwaterloo.ca/~kmsalem">Ken
+    Salem</a>, DC3512, <i>userid: kmsalem</i></td>
+</tr>
+
+<tr>
+<td width="20%"  align="left">Office Hours:</td>
+<td align="left"><span style="text-decoration:line-through">Mon 1:00-2:00, Tue 4:00-5:00, Thu 3:00-4:00</span></td>
+</tr>
+<tr>
+<td width="20%"  align="left"></td>
+<td align="left">April office hours: Apr 5th 2:30-4:00, Apr 9th
+  1:00-2:00, Apr 10th 3:00-5:00</td>
+</tr>
+
+<tr>
+<td width="20%"  align="left">TAs:</td>
+<td align="left">Changjiu Jin, <i>userid: c4jin</i></td>
+</tr>
+<tr>
+<td width="20%"  align="left"></td>
+<td align="left">Shahab Kamali, <i>userid: skamali</i></td>
+</tr>
+<tr>
+<td width="20%"  align="left"></td>
+<td align="left">Xin Liu, <i>userid: x39liu</i></td>
+</tr>
+
+<tr>
+<td width="20%"  align="left">TA Office Hours:</td>
+<td align="left"><span style="text-decoration:line-through">Shahab will hold office hours Wed 11:30-1:30 in DC3306</span></td>
+</tr>
+
+<!--
+<tr>
+<td width="20%"  align="left">Other TAs:</td>
+<td align="left"><a href="http://pedram.ir/">Pedram Ghodsnia</a>,
+    DC 3301,<i>userid: pghodsni</i> (TA for A1)</td>
+</tr>
+
+<tr>
+<td width="20%"  align="left"></td>
+<td align="left"><a href="http://www.cs.uwaterloo.ca/~akchalam/">Anup
+    Chalamalla</a>, DC3314, <i>userid: akchalam</i> (TA for A2)</td>
+</tr>
+-->
+
+<tr>
+<td width="20%"  align="left">Discussion Board:</td>
+<td align="left">We will be using <a href="http://www.piazza.com/uwaterloo.ca/winter2012/cs448
+">Piazza</a> for on-line
+  discussion and announcements.   We will be
+  using <a href="http://learn.uwaterloo.ca/">Waterloo's LEARN
+    system</a> only for posting exam and assignment marks.
+  Course personnel will not be monitoring the <tt>uw.cs.cs448</tt>
+  newsgroup this term.</td>
+</tr>
+</table>
+<br>
+E-mail to course personnel can be directed to <i>userid at cs dot
+  uwaterloo dot ca</i>.  The userids are listed above.
+
+
+<h3>Course Description and Objectives</h3>
+
+This is a second course on databases that focuses on DBMS internals. It is a project-oriented course that will provide the students, upon successful completion, with an appreciation of the intricacies and complexities of a DBMS and enable them to be able to design and implement the major components of it. The course objective will be achieved by focusing on three fundamental sub-objectives:
+<ol>
+<li>To understand the fundamentals of storage systems and disk-based data structures;</li>
+<li>To understand the process of query processing and optimization; and</li>
+<li>To learn the implementation of transactions.</li>
+</ol>
+<p>
+Complementary to the above objectives, the course has a training
+component where the students will gain experience, within the context
+of a number of assignments, in building components of a DBMS and
+incorporating them into an open source system such as MySQL or
+PostgreSQL. The lectures may be complemented by guest lectures on
+real-life DBMS implementation issues given by colleagues from
+industry.  Further details can be found at 
+<a href="http://www.cs.uwaterloo.ca/current/courses/course_descriptions/cDescr/CS448">http://www.cs.uwaterloo.ca/current/courses/course_descriptions/cDescr/CS448</a>.
+
+<a name="workload"></a>
+<h2>Workload and Evaluation</h2>
+<p>
+The course marking scheme for CS448 is:
+<ul>
+<li>assignments: 40% (5% A1, 20% A2, 15% A3)</li>
+<li>midterm exam: 20%</li>
+<li>final exam: 40%</li>
+</ul>
+</p><p>
+In addition, you must pass the exams in order to pass the course.
+That is, having a weighted exam average above 50% is a necessary
+(but not sufficient) condition for passing.
+</p>
+<p>
+Graduate students enrolled in CS648 have different requirements,
+and will use a different marking scheme.
+See the <a href="#648info">CS648 section</a> for more information.
+</p>
+<p>
+Assignment and exam marks will be posted on
+UW's <a href="http://learn.uwaterloo.ca/">LEARN on-line course
+system</a>.  Log in to <i>LEARN</i> using your WatIAM userId
+and password and select CS448/648 to view your marks once they
+have been posted.
+Mark posting is the <b>only</b> thing we will be using <i>LEARN</i>
+for this term.  All course materials can be found on this web
+page, and Piazza will be used for discussion and announcements.
+
+<h2>Optional Alternative Workload for CS448 Students</h2>
+<p>
+CS448 students who wish to participate in
+the <a href="http://wwwdb.inf.tu-dresden.de/sigmod2012contest/">SIGMOD
+2012 Programming Contest</a> have the option of doing so as a CS448
+course project.   CS448 students who choose this alternative will
+be evaluated using the CS648 workload and marking scheme, rather than
+the standard CS448 scheme.  That is, their programming contest project
+will replace CS448 Assignment 3, and they will
+use the <a href="#648info">same project, exam and assignment marking
+    weights as CS648 students</a>.
+Details about the requirements for the SIGMOD programming contest as
+a course project can be found on the <a href="648projects.html">CS648 project page</a>.
+</p><p>
+CS448 students who wish to use this alternative <b>must elect to do so 
+no later than January 24th</b>.  This election is not revocable after
+January 24th.
+</p><p>CS448 students who are interested in this alternative should elect
+  to use it by sending e-mail to the instructor by the January 24th
+  deadline.   The e-mail should include name, ID number, and UW e-mail
+  address.  If you expect to work on the project with a group, please
+  also include the names of the other group members.
+</p>
+
+<a name="schedule"></a>
+<h2>Schedule and Lecture Notes</h2>
+<p>
+The table below shows planned lecture topics, along with
+the corresponding textbook chapters and links to the lecture notes (as
+they become available).  The course textbook is <i>Database Management
+Systems</i>. R. Ramakrishnan and J. Gehrke. McGraw-Hill. 3rd Edition.
+The textbook is optional.  It will be available through the
+Davis Centre Library <a href="https://www.reserves.uwaterloo.ca/ares/">course reserves</a>.
+</p><p>
+Lecture notes are available in PDF format, one slide per page. 
+Using Adobe Acrobat or a similar program, you should be able to
+print these with multiple slides per page to save paper and cost.
+Printing two slides per page, double-sided is a good option - the
+slides are still easy to read, even with substantial margins 
+(for note taking) left around the slides. 
+
+<table width="100%" frame="box" rules="groups" cellpadding="2">
+<colgroup>
+<col align="center" valign="center"></col>
+</colgroup>
+<colgroup>
+<col align="center" valign="center"></col>
+</colgroup>
+<colgroup>
+<col align="left" valign="center"></col>
+</colgroup>
+<colgroup>
+<col align="left" valign="center"></col>
+</colgroup>
+<colgroup>
+<col align="left" valign="center" width="35%"></col>
+</colgroup>
+<thead>
+<tr>
+<th>Start</th>
+<th>End</th>
+<th>Topic</th>
+<th>Chapters</th>
+<th>Lecture Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td align="center">Jan 03</td>
+<td align="center">Jan 03</td>
+<td align="center">Intro</td>
+<td align="center">n/a</td>
+<td align="center"><a href="notes/intro.pdf">PDF</a></td>
+</tr>
+
+<tr>
+<td align="center">Jan 03</td>
+<td align="center">Jan 05</td>
+<td align="center">DBMS Architecture</td>
+<td align="center">n/a</td>
+<td align="center"><a href="notes/arch.pdf">PDF</a></td>
+</tr>
+
+<tr>
+<td align="center">Jan 05</td>
+<td align="center">Jan 19</td>
+<td align="center">Data Storage</td>
+<td align="center">Chapter 9</td>
+<td align="center"><a href="notes/storage.pdf">PDF</a></td>
+</tr>
+
+<tr>
+<td align="center">Jan 05</td>
+<td align="center">Jan 19</td>
+<td align="center">Access Methods</td>
+<td align="center">Chapters 8,10,11</td>
+<td align="center"><a href="notes/indexing.pdf">PDF</a></td>
+</tr>
+
+<tr>
+<td align="center">Jan 24</td>
+<td align="center">Feb 2</td>
+<td align="center">Query Processing</td>
+<td align="center">Chapters 12,13,14</td>
+<td align="center"><a href="notes/qeval.pdf">PDF</a></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Feb 2</td>
+<td align="center">Mar 6</td>
+<td align="center">Query Optimization</td>
+<td align="center">Chapter 15 </td>
+<td align="center"><a href="notes/qopt.pdf">PDF</a></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Feb 9</td>
+<td align="center">Feb 9</td>
+<td align="center">Spatial Indexing (guest lecture)</td>
+<td align="center">Chapter 28</td>
+<td align="center"><a href="notes/UWCS448_20120209_SpatialIndexing.pdf">PDF</a></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Mar 6</td>
+<td align="center"></td>
+<td align="center">Concurrency and Failures</td>
+<td align="center">Chapters 16,17,18</td>
+<td align="center"><a href="notes/trans.pdf">PDF</a></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Mar 27</td>
+<td align="center"></td>
+<td align="center">Distributed Data Management</td>
+<td align="center">Chapter 22</td>
+<td align="center"><a href="notes/distrib.pdf">PDF</a></td>
+<td align="center"></td>
+</tr>
+
+
+</tbody>
+
+</table>
+
+<a name="assignments"></a>
+<h2>Assignments</h2>
+
+<dl>
+<dt><a name="PGresources"></a><b>Resources</b></dt>
+<dd>
+<ul>
+ <li>If you are working on your own machine, you can use this
+     <a href="postgresql-8.1.4.tgz">link to download
+     postgresql-8.1.4.tgz</a>.  If you are working in the CS student computing 
+     environment, you can instead obtain PostgreSQL version 8.1.4 from
+     the CS448 course account, which is probably faster.
+     </li>
+ <li><a target="_top"
+       href="http://www.postgresql.org/docs/8.1/static/index.html">PostgreSQL
+       version 8.1 documentation</a> from <a target="_top" href="http://www.postgresql.org">www.postgresql.org</a></li>
+
+</ul>
+</dd>
+</dl>
+
+<dl>
+  <dt><a name="A0"></a><a href="A0.pdf"><b>Assignment 0</b>: PostgreSQL setup</a></dt>
+  <dd>
+   <ul>
+     <li>Before you can start on Assignment 1, you will need to
+  configure, build and install copy of PostgreSQL.  You will also need to
+  familiarize yourself with how to use PostgreSQL, and with the
+  structure of the source code.  <a href="A0.pdf">Assignment 0</a> will guide you through
+  these steps</li>
+     <li>This assignment is not marked and there is nothing to
+     submit.</li>
+     <li>There is no due date for this assignment, but you will need
+     to complete it before you can start on Assignment 1.</li>
+   </ul>
+  </dd>
+</dl>
+
+<dl>
+  <dt><a name="A1"></a><a href="A1.pdf"><b>Assignment 1</b>: Prefix Key Compression</a></dt>
+  <dd>
+   <ul>
+     <li><b>Due: 12:00 (noon), Tuesday 24 January</b>.  Late
+     assignments will not be accepted.</li>
+     <li><a href="A1.pdf">assignment specification</a></li>
+     <li>The sample data file <tt>words.txt</tt> and the
+       corresponding SQL command file (<tt>words.sql</tt>) can be
+       found in the directory <tt>/u/cs448/public</tt> in
+       the <tt>student.cs</tt> computing environment.</li>
+     <li>a second A1 test case is now available.  The test case
+     consists of two files, which you will find
+     in <tt>/u/cs448/public/</tt>.
+       <ul>
+	 <li><tt>httplog.csv</tt>: data file, in CSV
+	 format</li>
+         <li><tt>httplog.sql</tt>: command file that
+         will create a table and an index, and then loads the table
+         using the <tt>httplog.csv</tt> file.</li>
+       </ul>
+      This table contains data from a web server log.
+      The <tt>sql</tt> file defines an index on the <tt>request</tt>
+      field, which contains the actual text of an http request handled
+      by the web server.  The <tt>request</tt> field contains
+      duplicates, and the values are generally longer than those in
+      the <tt>words.txt</tt> file.
+     </li> 
+     <li>a third A1 test case is now available.  The test case
+     consists of two files, which you will find
+     in <tt>/u/cs448/public/</tt>.
+       <ul>
+	 <li><tt>nycbaby.csv</tt>: data file, in CSV
+	 format</li>
+         <li><tt>nycbaby.sql</tt>: command file that
+         will create a table and an index, and then loads the table
+         using the <tt>nycbaby.csv</tt> file.</li>
+       </ul>
+     The data in this table give the frequency of different baby names
+     in New York City from 1920 to the present.   For each year, it
+     identifies the names given to babies and number of times each
+     name was given in that year.   There are duplicates in the name
+     field (because most names are repeated once for each year), but
+     the values are shorter than those in the <tt>httplog</tt> data.
+     (Note that you will find the names <tt>FEMALE</tt>
+     and <tt>MALE</tt> in the <tt>name</tt> column of this table.
+     These values were used to represent those babies that were not 
+     assigned names at birth.)
+     </li> 
+     <li>This is an <b>individual</b> assignment, not a group
+     assignment.</li>
+     <li>This assignment is to be submitted electronically using
+     the <tt>submit</tt> command.  Details can be found in the 
+     assignment specification. Marked assignments will be returned
+     electronically.</li>
+   </ul>
+  </dd>
+</dl>
+
+<dl>
+  <dt><a name="A2"></a><a href="A2.pdf"><b>Assignment 2</b>: Symmetric Hash Join</a></dt>
+  <dd>
+   <ul>
+     <li><b>Due: 12:00 (noon), Tuesday 6 March</font></b>.  Late
+     assignments will not be accepted.</li>
+     <li><a href="A2.pdf">assignment specification</a></li>
+     <li>A2 may be done individually or in groups of two.   If you
+     plan to work in a group, you should <b>register your group no
+     later than Wednesday, February 1st.</b>   Shahab has put up
+     <a href="http://scspc159.cs.uwaterloo.ca:8080/cs448/register.jsp">a simple web site</a> that you should use to register
+     your group.   (Please contact Shahab if you have problems with
+     group registation.)   We will create a Linux group on
+     the <tt>student.cs</tt> Linux servers for each registered group.
+     This can be useful if group members want to share access to a 
+     single copy of the source code.
+     </li>
+     <li>General discussion of the assignment (e.g.,
+       on <a href="http://www.piazza.com/uwaterloo.ca/winter2012/cs448">Piazza</a>)
+       is encouraged.  However, <b>the work that you submit (or your
+       group submits) must be yours</b>.   Copying or sharing code
+       among groups is a violation of <a href="#academicintegrity">academic
+       integrity</a> rules, and is not permitted.   We will use copy detection
+       tools to cross-check submissions.</li>
+     <li>This assignment is to be submitted electronically using
+       the <tt>submit</tt> command.  Details can be found in the 
+       assignment specification.  Marked assignments will be returned
+       in class.</li>
+     <li>A simple test case, consisting of three files, can be found
+         in <tt>/u/cs448/public</tt> in the <tt>student.cs</tt>
+         environment.  The files are:
+       <ul>
+	 <li><a href="A2Tables.sql">A2Tables.sql</a>: commands to
+	 create and populate a few small relations</li>
+	 <li><a href="A2Query.sql">A2Query.sql</a>: a two-way join query 
+	 over the relations</li>
+	 <li><a href="A2Result.txt">A2Result.txt</a>: the expected
+         output of the query</li>
+       </ul>
+       Copy or use these files directly from <tt>/u/cs448/public</tt>
+       or download them using the links above.
+     </li>
+     <li>A2 <b>requires specific debugging output</b> from the PostgreSQL
+     server, including summary information and trace information.
+     The required formatting for this debugging output is shown
+     in <a href="A2TraceFormat.txt">this example.</a>  Please note
+     that:
+       <ul>
+	 <li>the debugging output is produced only when the server is
+	 started with the <tt>-d 1</tt> command line option, and</li>
+	 <li>each line of required debugging output starts with the 
+             string <tt>CS448</tt>, and</li>
+	 <li>the debugging output includes all of the information
+	 required by A2 and no extraneous informtion, and</li>
+	 <li>indenting is used to make the output easier to read.</li>
+       </ul>
+     </li>
+     <li>some test data and queries used in marking A2:
+     <ul>
+     <li><a href="A2test/A2t_DB.sql">test data</a></li>
+     <li>test
+     queries: <a href="A2test/A2t1.sql">Q1</a>,<a href="A2test/A2t2.sql">Q2</a>,<a href="A2test/A2t3.sql">Q3</a>,<a href="A2test/A2t4.sql">Q4</a>,<a href="A2test/A2t5.sql">Q5</a></li>
+     <li><a href="A2test/A2t_output.txt">sample output for the test queries</a></li>
+     </ul>
+     </li>
+  <li>If there is a problem with the marking of your Assignment 2, you may
+    request that it be reappraised.  To do this, please 
+    print and complete this <a href="448reappraisal.html">reappraisal
+    form</a>, attach it to your A2 marking summary sheet, and return both to the
+    instructor.   Alternatively, you may submit your A2 for
+    re-appraisal by bringing the
+    marking summary sheet to an office hour.
+    The last day for submitting re-appraisal requests for A2
+    is <b><font color="#FF0000">Friday March 30th</font></b>.</li> 
+   </ul>
+  </dd>
+</dl>
+
+<dl>
+  <dt><a name="A3"></a><a href="A3.pdf"><b>Assignment 3</b>: Query Optimization</a></dt>
+  <dd>
+   <ul>
+     <li><b>Due: 12:00 (noon), Monday 2 April</b>.  Late
+     assignments will not be accepted.</li>
+     <li><a href="A3.pdf">assignment specification</a></li>
+     <li>A3 may be done individually or in groups of two.  We will
+     assume that you will be working in the same groups as you did for
+     Assignment 2 unless we hear otherwise from you.   Please contact
+     Shahab by March 13th if this is not the case.</li>
+     <li>This assignment is to be submitted electronically using
+       the <tt>submit</tt> command.  Details can be found in the 
+       assignment specification.  Marked assignments will be 
+       available for pickup from the instructor's office.</li>
+   </ul>
+  </dd>
+</dl>
+
+<a name="exams"></a>
+<h2>Exams</h2>
+<dl>
+<dt><b>Midterm Exam</b></dt>
+<dd>
+  <ul>
+  <li><b>Exam Date: Thursday February 16, 19:00-21:00</b></li>
+  <li><b>Exam Location:</b> MC4061</li>
+  <li>pens and brains only: no books, no notes, no devices</li>
+  <li>if you have a conflict with the scheduled midterm time, please
+    notify the instructor (kmsalem) of your conflict by e-mail
+    by <b>Tuesday, February 1st</b>.   In your message, please
+    include the following information: reason for the conflict (e.g.,
+    another course), time of the conflicting course, your name and
+    student ID number.</li>
+  <li>Marked midterms will be returned in class.</li>
+  <li><a href="W12midsol.pdf">Midterm Exam Sample Solution</a></li>
+  <li>If there is a problem with the marking of your exam, you may
+    request that your exam be reappraised.  To do this, please 
+    print and complete this <a href="448reappraisal.html">reappraisal
+    form</a>, attach it to your exam, and return both to the
+    instructor.   The deadline for submitting midterm reappraisal
+    requests is <b><font color="#FF0000">Thursday March 8th</font></b>.</li> 
+  </ul>
+</dd>
+<dt><b>Final Exam</b></dt>
+<dd>
+  <ul>
+  <li><b>Exam Date: Wednesday 11 April, 09:00-11:30</b></li>
+  <li><b>Exam Location: RCH 112</b> </li>
+  <li>pens and brains only: no books, no notes, no devices</li>
+  <li><a
+  href="http://www.registrar.uwaterloo.ca/exams/finalexams.html">Final
+  exam information</a> from the registrar.</li>
+  </ul>
+</dd>
+<dt><b>Study Materials</b></dt>
+<dd>
+  <ul>
+  <li>Textbook exercises can be a useful way to ensure that you
+    understand the course material.  Here are some suggested exercises
+    from the course textbook:
+    <ul>
+      <li>Chapter 8: 8.3,8.4,8.10,8.11</li>
+      <li>Chapter 9: 9.7,9.8,9.12,9.22</li>
+      <li>Chapter 10: 10.1,10.2,10.4,10.10</li>
+      <li>Chapter 11: 11.3,11.7</li>
+      <li>Chapter 12: 12.2,12.4</li>
+      <li>Chapter 13: 13.1</li>
+      <li>Chapter 14: 14.2,14.3,14.4,14.5</li>
+      <li>Chapter 15: 15.2,15.4,15,7,15.8,15.9</li>
+      <li>Chapter 16: 16.1,16.2,16.3,16.5</li>
+      <li>Chapter 17: 17.2 (conflict serializability only),17.8</li>
+      <li>Chapter 18: 18.3,18.4,18.5</li>
+      <li>Chapter 22: 22.14</li>
+    </ul>
+  </li>
+  <li>The textbook's authors have published a
+    <a href="http://pages.cs.wisc.edu/~dbbook/openAccess/thirdEdition/solutions/ans3ed-oddonly.pdf">solution
+      manual</a> that includes solutions for odd-numbered exercises up
+    through and including Chapter 21.
+  </li>
+  <li><a href="S07mid1.pdf">First S07 midterm exam</a>
+  and <a href="S07mid1sol.pdf">model solution</a>.</li>
+  <li><a href="S07mid2.pdf">Second S07 midterm exam</a>
+  and <a href="S07mid2sol.pdf">model solution</a>.</li>
+  <li><a href="W11mid.pdf">W11 midterm exam</a>
+  and <a href="W11midsol.pdf">model solution</a>.</li>
+  <li><a href="W12mid.pdf">W12 midterm exam</a>
+  and <a href="W12midsol.pdf">model solution</a>.</li>
+<!--
+  <li><a href="notes/qotd.pdf">Slides</a> for questions discussed in
+  class.  Answers to these exercises were discussed in class, but are
+  not included in the slides.</li>
+-->
+  </ul>
+</dd>
+<!--
+<dt><a href="finalW02.pdf">Sample Final Exam (PDF)</a> from W02.</dt>
+<dd>Note that this exam is from the <i>old</i> CS448, which includes
+  topics not covered in the new CS448.</dd>
+</dd>
+-->
+</dl>
+
+<a name="648info"></a>
+<h2>CS648 Information</h2>
+
+Students enrolled in CS648 are responsible only for the first two
+assignments (A1 and A2).  Instead of A3, CS648 students must do a
+final project.
+
+Information about the CS648 final project is available on the
+<a href="648projects.html">CS648 project information page</a>.
+
+CS648 will use the following marking scheme, which differs from the
+CS448 marking scheme because of the project:
+<ul>
+  <li>assignments: 20% (4% A1, 16% A2 )</li>
+  <li>midterm exam: 10%</li>
+  <li>final exam: 40%</li>
+  <li>course project: 30%</li>
+</ul>
+Like CS448 students, CS648 students must pass the exams to pass the
+course.  That is, having a weighted exam average above 50% is a necessary
+(but not sufficient) condition for passing.
+
+<a name="academicintegrity"></a>
+<h2>Academic Integrity</h2>
+
+<p>
+In order to maintain a culture of academic
+integrity, members of the University of Waterloo community are
+expected to promote honesty, trust, fairness, respect and
+responsibility. All members of the UW community are expected to hold
+to the highest standard of academic integrity in their studies,
+teaching, and research. The Office of Academic Integrity's website
+<a href="http://www.uwaterloo.ca/academicintegrity">
+(www.uwaterloo.ca/academicintegrity)</a>
+contains detailed information on
+UW policy for students and faculty. This site explains why academic
+integrity is important and how students can avoid academic
+misconduct. It also identifies resources available on campus for
+students and faculty to help achieve academic integrity in - and out -
+of the classroom.
+<p>
+<b>Grievance</b>: A student who believes that a decision affecting some
+aspect of his/her university life has been unfair or unreasonable may
+have grounds for initiating a grievance. Read Policy 70 - Student
+Petitions and Grievances, Section 4,
+
+<a href="http://www.adm.uwaterloo.ca/infosec/Policies/policy70.htm">
+http://www.adm.uwaterloo.ca/infosec/Policies/policy70.htm</a>
+<p>
+<b>Discipline:</b> A student is expected to know what constitutes academic
+integrity, to avoid committing academic offenses, and to take
+responsibility for his/her actions. A student who is unsure whether an
+action constitutes an offense, or who needs help in learning how to
+avoid offenses (e.g., plagiarism, cheating) or about "rules" for
+group work/collaboration should seek guidance from the course
+professor, academic advisor, or the Undergraduate Associate Dean. When
+misconduct has been found to have occurred, disciplinary penalties
+will be imposed under Policy 71 - Student Discipline. For information
+on categories of offenses and types of penalties, students should
+refer to Policy 71 - Student Discipline,
+<a href="http://www.adm.uwaterloo.ca/infosec/Policies/policy71.htm">
+http://www.adm.uwaterloo.ca/infosec/Policies/policy71.htm</a>
+<p>
+
+<b>Avoiding Academic Offenses:</b> Most students are unaware of the line
+between acceptable and unacceptable academic behaviour, especially
+when discussing assignments with classmates and using the work of
+other students.  For information on commonly misunderstood academic
+offenses and how to avoid them, students should refer to the Faculty
+of Mathematics Cheating and Student Academic Discipline Policy,
+<a href="http://www.math.uwaterloo.ca/navigation/Current/cheating_policy.shtml">
+http://www.math.uwaterloo.ca/navigation/Current/cheating_policy.shtml</a>
+
+<p>
+<b>Appeals:</b> A student may appeal the finding and/or penalty in a decision
+made under Policy 70 - Student Petitions and Grievances (other than
+regarding a petition) or Policy 71 - Student Discipline if a ground
+for an appeal can be established. Read Policy 72 - Student Appeals,
+<a href="http://www.adm.uwaterloo.ca/infosec/Policies/policy72.htm">
+http://www.adm.uwaterloo.ca/infosec/Policies/policy72.htm</a>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+Client output:
+==============
+
+  manager   | deptno 
+------------+--------
+ Sean       |      4
+ Sean       |      5
+ Simon      |      2
+ Jack       |      1
+ John       |      3
+(5 rows)

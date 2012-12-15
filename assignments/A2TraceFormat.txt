@@ -1,0 +1,70 @@
+LOG:  database system was shut down at 2012-02-20 23:32:26 EST
+LOG:  checkpoint record is at 0/35A4F4
+LOG:  redo record is at 0/35A4F4; undo record is at 0/0; shutdown TRUE
+LOG:  next transaction ID: 633; next OID: 16412
+LOG:  next MultiXactId: 1; next MultiXactOffset: 0
+LOG:  database system is ready
+LOG:  transaction ID wrap limit is 2147484146, limited by database "postgres"
+LOG:  connection received: host=[local]
+LOG:  connection authorized: user=kmsalem database=mytest
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 75
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 75
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 81
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 81
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 1012
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 1012
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1014
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1014
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 914
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 914
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 77
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 77
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 911
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 911
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 80
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 80
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 911
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 911
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 813
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 813
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1010
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1010
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 814
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 814
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1013
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1013
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 79
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 79
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 913
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 913
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 911
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 911
+DEBUG:  CS448:       nodeHashjoin: found a match in outer bucket 911
+DEBUG:  CS448:       nodeHashjoin: found a match in outer bucket 911
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1009
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1009
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1012
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1012
+DEBUG:  CS448:       nodeHashjoin: found a match in outer bucket 1012
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 78
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 78
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 714
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 714
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 912
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 912
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 76
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 76
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 75
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 75
+DEBUG:  CS448:       nodeHashjoin: found a match in outer bucket 75
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1011
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1011
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 914
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 914
+DEBUG:  CS448:       nodeHashjoin: found a match in outer bucket 914
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 20
+DEBUG:  CS448: total outer tuples processed: 5
+DEBUG:  CS448: total results from inner probes: 5
+DEBUG:  CS448: total results from outer probes: 0
+LOG:  disconnection: session time: 0:00:06.00 user=kmsalem database=mytest host=[local]

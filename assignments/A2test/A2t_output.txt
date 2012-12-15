@@ -1,0 +1,185 @@
+NOTE:  This is an example of what correct output would look like.
+   There is more than one way to implement the symmetric hash join,
+   so other outputs may also be correct. 
+
+   For each query, both the server's diagnostic output and the
+   client's output (the query result) are shown.
+
+
+####  Q1 ########################################################################
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 181
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 181
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 180
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 178
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 177
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 177
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 5
+DEBUG:  CS448: total outer tuples processed: 0
+DEBUG:  CS448: total results from inner probes: 0
+DEBUG:  CS448: total results from outer probes: 0
+
+client output:
+
+ building | dept_name 
+----------+-----------
+(0 rows)
+
+
+####  Q2 ########################################################################
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 181
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 181
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 178
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 180
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 179
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 179
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 179
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 181
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 181
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 181
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 178
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 178
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 180
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 180
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 177
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 177
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 181
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 181
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 181
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 177
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 177
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 177
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 5
+DEBUG:  CS448: total outer tuples processed: 7
+DEBUG:  CS448: total results from inner probes: 3
+DEBUG:  CS448: total results from outer probes: 4
+
+client output:
+  employee  | dept_name  
+------------+------------
+ John       | management
+ Sean       | management
+ Jack       | accounting
+ Jeff       | shipping  
+ Simon      | sales     
+ Smith      | accounting
+ Bob        | testing   
+(7 rows)
+
+
+####  Q3 ########################################################################
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 178
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 181
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 181
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 180
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 180
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 180
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 179
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 178
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 178
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 177
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 177
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 5
+DEBUG:  CS448: total outer tuples processed: 3
+DEBUG:  CS448: total results from inner probes: 2
+DEBUG:  CS448: total results from outer probes: 1
+
+client output:
+ manager_no | dept_name  
+------------+------------
+        203 | sales     
+        301 | management
+        304 | shipping  
+(3 rows)
+
+
+####  Q4 ########################################################################
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 178
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 180
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 179
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 179
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 179
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 179
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 180
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 180
+DEBUG:  CS448:       nodeHashjoin: found a match in inner bucket 180
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 178
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 178
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 178
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 3
+DEBUG:  CS448: total outer tuples processed: 3
+DEBUG:  CS448: total results from inner probes: 2
+DEBUG:  CS448: total results from outer probes: 1
+
+client output:
+ manager_no |  country   
+------------+------------
+        301 | China     
+        203 | USA       
+        304 | Japan     
+(3 rows)
+
+
+####  Q5 ########################################################################
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 911
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 911
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 911
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 911
+DEBUG:  CS448:       nodeHasjoin: found a match in outer bucket 911
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 914
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 914
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 813
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 813
+DEBUG:  CS448: nodeHash: insertion into outer hash table bucket 1012
+DEBUG:  CS448:    nodeHashjoin: got outer tuple, probing inner hash table bucket 1012
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 914
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 914
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 75
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 75
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 1012
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 1012
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 81
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 81
+DEBUG:  CS448: nodeHash: insertion into inner hash table bucket 82
+DEBUG:  CS448:    nodeHashjoin: got inner tuple, probing outer hash table bucket 82
+DEBUG:  CS448: HASH JOIN SUMMARY STATISTICS
+DEBUG:  CS448: total inner tuples processed: 7
+DEBUG:  CS448: total outer tuples processed: 3
+DEBUG:  CS448: total results from inner probes: 1
+DEBUG:  CS448: total results from outer probes: 0
+
+client output:
+   ename    | dno 
+------------+-----
+ Sean       |   4
+(1 row)
+
+
+
